@@ -1,0 +1,25 @@
+name: 'cecomsap_bi'
+version: '1.0.0'
+config-version: 2
+
+profile: 'cecomsap_bi'
+
+model-paths:  ["models"]
+seed-paths:   ["seeds"]
+test-paths:   ["tests"]
+macro-paths:  ["macros"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  cecomsap_bi:
+    staging:
+      +schema:        staging
+      +materialized:  view
+    marts:
+      +schema:        marts
+      +materialized:  table
+      fact_cartera:
+        +materialized: incremental
+        +unique_key:   cod

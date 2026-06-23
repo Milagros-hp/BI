@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: "Capa Bronze — datos replicados desde MySQL vía Kafka consumer"
+    tables:
+      - name: cartera
+        description: "Cartera de créditos CECOMSAP al 31/03/2026 (737 créditos)"
+        columns:
+          - name: cod
+            description: "Código único del socio/crédito"
+            tests: [not_null, unique]
+          - name: titular
+            description: "Nombre completo del titular"
+            tests: [not_null]
+          - name: tcr
+            description: "Tipo de crédito"
+            tests:
+              - accepted_values:
+                  values: ['MIE', 'CON', 'PEE', 'MEE']
+          - name: calif
+            description: "Calificación de riesgo SBS"
+            tests:
+              - accepted_values:
+                  values: ['NOR', 'PER', 'POT', 'DUD']
+          - name: monto_credito
+            description: "Monto original desembolsado en S/"
+            tests: [not_null]
+          - name: saldo_credito
+            description: "Saldo vigente al corte"
+            tests: [not_null]
+          - name: gen
+            description: "Género del titular"
+            tests:
+              - accepted_values:
+                  values: ['M', 'F', 'E']

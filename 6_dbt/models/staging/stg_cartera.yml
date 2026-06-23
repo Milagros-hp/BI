@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_cartera
+    description: >
+      Capa Silver. Limpieza y estandarización de raw.cartera.
+      Renombra columnas al español claro, aplica COALESCE en nulos
+      numéricos, calcula bucket_atraso y edad del titular.
+    columns:
+      - name: cod
+        description: "Código único del crédito"
+        tests: [not_null, unique]
+      - name: calificacion
+        description: "Calificación SBS"
+        tests:
+          - accepted_values:
+              values: ['NOR', 'PER', 'POT', 'DUD']
+      - name: monto_credito
+        description: "Monto desembolsado > 0"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+      - name: saldo_credito
+        tests: [not_null]
+      - name: dias_atraso
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: genero
+        tests:
+          - accepted_values:
+              values: ['M', 'F', 'E']
+      - name: tipo_credito
+        tests:
+          - accepted_values:
+              values: ['MIE', 'CON', 'PEE', 'MEE']

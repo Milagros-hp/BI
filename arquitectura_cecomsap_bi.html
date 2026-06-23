@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquitectura CECOMSAP BI — Pipeline completo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<style>
+  :root{
+    --bg-primary:#ffffff; --bg-secondary:#f5f5f4; --bg-tertiary:#ede9e1;
+    --text-primary:#1a1a18; --text-secondary:#6b6a63; --text-tertiary:#9c9a92;
+    --border-light:rgba(0,0,0,.10); --border-med:rgba(0,0,0,.18);
+    --radius-md:8px; --radius-lg:12px;
+    --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --font-mono:'Fira Code','Cascadia Code',monospace;
+  }
+  @media(prefers-color-scheme:dark){:root{
+    --bg-primary:#1e1e1c; --bg-secondary:#2a2a27; --bg-tertiary:#333330;
+    --text-primary:#e8e6df; --text-secondary:#9c9a92; --text-tertiary:#6b6a63;
+    --border-light:rgba(255,255,255,.08); --border-med:rgba(255,255,255,.15);
+  }}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-sans);background:var(--bg-tertiary);color:var(--text-primary);min-height:100vh;padding:2rem 1rem}
+  .card{background:var(--bg-primary);border:1px solid var(--border-light);border-radius:var(--radius-lg);max-width:900px;margin:0 auto;overflow:hidden}
+  .card-header{padding:24px 28px 16px;border-bottom:1px solid var(--border-light)}
+  .card-header h1{font-size:20px;font-weight:600;color:var(--text-primary)}
+  .card-header p{font-size:13px;color:var(--text-secondary);margin-top:4px}
+  .card-body{padding:20px 28px}
+
+  .nodes-row{display:flex;align-items:center;gap:0;margin-bottom:12px;overflow-x:auto;padding-bottom:4px}
+  .node-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+  .node-btn{
+    display:flex;flex-direction:column;align-items:center;padding:10px 10px 8px;
+    border-radius:var(--radius-md);border:1.5px solid transparent;cursor:pointer;
+    background:var(--bg-secondary);min-width:82px;transition:all .18s
+  }
+  .node-btn:hover{opacity:.85}
+  .node-btn .ni{font-size:20px;margin-bottom:3px}
+  .node-btn .nn{font-size:10px;font-weight:600;text-align:center;line-height:1.2}
+  .node-btn .nt{font-size:9px;color:var(--text-secondary);text-align:center;margin-top:1px}
+  .node-btn.c-teal  {border-color:#0F6E56;background:#E1F5EE} .node-btn.c-teal .ni,.node-btn.c-teal .nn{color:#0F6E56}
+  .node-btn.c-amber {border-color:#854F0B;background:#FAEEDA} .node-btn.c-amber .ni,.node-btn.c-amber .nn{color:#854F0B}
+  .node-btn.c-purple{border-color:#534AB7;background:#EEEDFE} .node-btn.c-purple .ni,.node-btn.c-purple .nn{color:#534AB7}
+  .node-btn.c-blue  {border-color:#185FA5;background:#E6F1FB} .node-btn.c-blue .ni,.node-btn.c-blue .nn{color:#185FA5}
+  .node-btn.c-coral {border-color:#993C1D;background:#FAECE7} .node-btn.c-coral .ni,.node-btn.c-coral .nn{color:#993C1D}
+  .node-btn.c-green {border-color:#3B6D11;background:#EAF3DE} .node-btn.c-green .ni,.node-btn.c-green .nn{color:#3B6D11}
+  .node-btn.c-gray  {border-color:#5F5E5A;background:#F1EFE8} .node-btn.c-gray .ni,.node-btn.c-gray .nn{color:#5F5E5A}
+  .connector{flex-shrink:0;width:24px;display:flex;align-items:center;justify-content:center;position:relative;height:48px}
+  .conn-line{width:100%;height:1.5px;background:var(--border-med);position:relative;overflow:visible}
+  .dot{width:6px;height:6px;border-radius:50%;position:absolute;top:-2.25px;left:-3px}
+  @keyframes flow{0%{left:-3px;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 3px);opacity:0}}
+  .dot{animation:flow 1.8s linear infinite}
+
+  .nav-dots{display:flex;gap:6px;justify-content:center;margin:8px 0 16px}
+  .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--border-med);cursor:pointer;transition:background .2s;border:none}
+  .nav-dot.active{background:var(--text-secondary)}
+
+  .detail-panel{border:1px solid var(--border-med);border-radius:var(--radius-lg);overflow:hidden}
+  .ph{display:flex;align-items:center;gap:10px;padding:14px 18px 10px;border-bottom:1px solid var(--border-light)}
+  .ph-icon{font-size:22px} .ph-name{font-size:15px;font-weight:600} .ph-sub{font-size:11px;color:var(--text-secondary)}
+  .ph-badge{font-size:10px;padding:2px 9px;border-radius:20px;margin-left:auto;font-weight:500}
+  .pb{display:grid;grid-template-columns:1fr 1fr}
+  @media(max-width:600px){.pb{grid-template-columns:1fr}}
+  .pc{padding:14px 18px}
+  .pc+.pc{border-left:1px solid var(--border-light)}
+  .pc-title{font-size:10px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .pc p{font-size:13px;line-height:1.6;color:var(--text-primary);margin-bottom:8px}
+  .why-box{background:var(--bg-secondary);border-radius:var(--radius-md);padding:9px 11px;margin-top:6px}
+  .why-lbl{font-size:10px;font-weight:600;color:var(--text-secondary);margin-bottom:4px}
+  .why-txt{font-size:12px;line-height:1.6;color:var(--text-primary)}
+  .fr{display:flex;gap:6px;font-size:11px;color:var(--text-secondary);margin-top:5px;align-items:flex-start}
+  .fr-val{font-weight:500;color:var(--text-primary)}
+  .cpill{font-family:var(--font-mono);font-size:10px;background:var(--bg-secondary);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;color:var(--text-secondary);display:inline-block;margin:1px}
+  .dato-box{margin-top:10px;padding-top:8px;border-top:1px solid var(--border-light)}
+  .kbd{display:inline-block;font-size:10px;background:var(--bg-secondary);border:1px solid var(--border-med);border-radius:4px;padding:1px 6px;color:var(--text-secondary)}
+  .hint{font-size:11px;color:var(--text-tertiary);text-align:center;margin-top:12px}
+  .footer{padding:16px 28px;border-top:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center}
+  .footer-btn{font-size:12px;padding:6px 16px;border-radius:var(--radius-md);border:1px solid var(--border-med);background:transparent;color:var(--text-primary);cursor:pointer}
+  .footer-btn:hover{background:var(--bg-secondary)}
+  .footer-counter{font-size:12px;color:var(--text-secondary)}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <h1>Arquitectura CECOMSAP BI — pipeline completo</h1>
+    <p>Haz clic en cada componente para entender el porqué de cada decisión de diseño · <span class="kbd">←</span> <span class="kbd">→</span> para navegar</p>
+  </div>
+  <div class="card-body">
+    <div class="nodes-row" id="nodes-row"></div>
+    <div class="nav-dots" id="nav-dots"></div>
+    <div class="detail-panel" id="detail-panel"></div>
+    <div class="hint">Proyecto: CECOMSAP · Cartera de créditos 31/03/2026 · 737 créditos · pipeline MySQL → Kafka → PostgreSQL → dbt → Power BI</div>
+  </div>
+  <div class="footer">
+    <button class="footer-btn" id="btn-prev">← Anterior</button>
+    <span class="footer-counter" id="counter">1 / 8</span>
+    <button class="footer-btn" id="btn-next">Siguiente →</button>
+  </div>
+</div>
+
+<script>
+const NODES=[
+  {id:'mysql',name:'MySQL',tech:'OLTP · binlog ROW',icon:'ti-database',color:'c-teal',badge:'Origen',bc:'#E1F5EE',bt:'#085041',
+   what:'Base de datos transaccional donde CECOMSAP registra cada crédito, pago y movimiento en tiempo real.',
+   why:'Ya existía como sistema operativo. Se conecta como fuente activando el <b>binary log (binlog)</b> en formato ROW — un registro interno de MySQL que anota cada INSERT, UPDATE y DELETE en orden cronológico, sin impactar el rendimiento del sistema transaccional.',
+   recibe:'Operaciones del sistema cooperativo: altas de crédito, actualizaciones de mora, pagos de socios.',
+   entrega:'Binlog ROW → Debezium CDC',
+   config:['server-id=1','log_bin=mysql-bin','binlog_format=ROW','binlog_row_image=FULL'],
+   dato:'737 créditos · tabla cartera · 53 columnas · fechas 2019–2026'},
+  {id:'debezium',name:'Debezium',tech:'Kafka Connect · CDC',icon:'ti-arrows-transfer-up',color:'c-amber',badge:'CDC',bc:'#FAEEDA',bt:'#633806',
+   what:'Conector de Change Data Capture que lee el binlog de MySQL y convierte cada cambio de fila en un mensaje JSON estructurado con campos before, after y op.',
+   why:'Hacer SELECT periódicos a MySQL para ver qué cambió carga el servidor, pierde cambios entre consultas y no detecta deletes. Debezium lee el binlog directamente (como una réplica), captura cada evento al instante sin tocar las tablas de negocio, y traduce cada operación a un <b>formato estándar</b> que Kafka puede distribuir.',
+   recibe:'Binlog ROW de MySQL · operaciones: c=create, u=update, d=delete',
+   entrega:'Mensajes JSON a Kafka · un topic por tabla',
+   config:['topic.prefix: cecomsap','snapshot.mode: initial','decimal.handling.mode: double','transforms: ExtractNewRecordState (unwrap)'],
+   dato:'Topic: cecomsap.oltp_cecomsap.cartera · mensaje incluye before/after/op/ts_ms'},
+  {id:'kafka',name:'Apache Kafka',tech:'Message broker',icon:'ti-topology-star',color:'c-purple',badge:'Broker',bc:'#EEEDFE',bt:'#3C3489',
+   what:'Bus de mensajería distribuida y duradera que actúa como intermediario desacoplado entre el sistema transaccional y el analítico.',
+   why:'Sin Kafka, el consumer consulta MySQL directamente — acoplamiento total: si el consumer cae, pierde datos; si hay pico de carga, colapsa MySQL. Kafka resuelve esto almacenando mensajes en el topic durante días. Si el consumer falla, al reiniciar <b>retoma desde donde quedó</b> sin perder nada. También permite múltiples consumers leyendo el mismo topic.',
+   recibe:'Mensajes JSON de Debezium · un mensaje por operación CDC',
+   entrega:'Mensajes a cualquier consumer suscrito · offset persistente',
+   config:['KAFKA_BROKER_ID: 1','replication_factor: 1 (dev)','KAFKA_AUTO_CREATE_TOPICS: true','retention: 7 días (configurable)'],
+   dato:'1 topic activo · partición única · sin pérdida de mensajes · Kafka UI en :8080'},
+  {id:'consumer',name:'Consumer Python',tech:'confluent-kafka · psycopg2',icon:'ti-code',color:'c-blue',badge:'Ingesta',bc:'#E6F1FB',bt:'#0C447C',
+   what:'Script Python que se suscribe al topic de Kafka, deserializa cada mensaje Debezium y hace UPSERT en la capa raw de PostgreSQL en batches de 100 filas.',
+   why:'El consumer es la única pieza con lógica de negocio: detecta op (c/u/d), extrae el campo "after" del mensaje, y ejecuta INSERT ... ON CONFLICT UPDATE garantizando <b>idempotencia</b>. Si el mismo mensaje llega dos veces (Kafka es "at least once"), el UPSERT no duplica filas. El commit manual al broker confirma que los mensajes fueron procesados.',
+   recibe:'JSON de Kafka · campos op, after{cod,titular,saldo,...}, ts_ms',
+   entrega:'UPSERT en raw.cartera (PostgreSQL) · batch commit 100 filas',
+   config:['group.id: cecomsap-raw-consumer','auto.offset.reset: earliest','enable.auto.commit: false','batch_size: 100 filas por commit'],
+   dato:'735 registros en raw.cartera tras snapshot inicial · siempre corriendo'},
+  {id:'postgres',name:'PostgreSQL',tech:'DataWarehouse · 3 capas',icon:'ti-server',color:'c-coral',badge:'DW',bc:'#FAECE7',bt:'#712B13',
+   what:'Base de datos analítica separada físicamente de MySQL. Organizada en 3 schemas que implementan las capas bronze / silver / gold del patrón medallion.',
+   why:'Las consultas analíticas (GROUP BY, SUM sobre cientos de filas, joins entre tablas) arruinarían el rendimiento de MySQL OLTP. La separación física garantiza que los análisis no impacten las operaciones. Las <b>3 capas</b> dan trazabilidad: si marts muestra un dato incorrecto, se puede rastrear hacia raw para ver el dato original exacto que llegó de Kafka.',
+   recibe:'raw: datos del consumer Python · staging y marts: modelos dbt transformados',
+   entrega:'Vistas marts.vw_* → On-premises Gateway → Power BI Service',
+   config:['schema raw: réplica exacta (bronze)','schema staging: limpieza dbt (silver)','schema marts: modelo dimensional (gold)','usuario pbi_reader: solo SELECT en marts.*'],
+   dato:'raw(735) → staging(735) → fact_cartera(735) + dim_fecha + dim_producto + dim_cliente + dim_gestor + dim_calificacion'},
+  {id:'dbt',name:'dbt',tech:'SQL declarativo · tests · docs',icon:'ti-transform',color:'c-green',badge:'Transformación',bc:'#EAF3DE',bt:'#27500A',
+   what:'Herramienta de transformación que convierte raw en modelos analíticos usando SQL puro con control de versiones, tests automáticos y documentación navegable del DataMart.',
+   why:'La alternativa es escribir scripts SQL ad hoc sin tests, sin linaje, sin documentación — un desastre de mantenimiento. dbt resuelve esto: cada modelo .sql es versionado en Git, los <b>15 tests automáticos</b> (not_null, unique, relationships, accepted_values) detectan datos corruptos antes de que lleguen a Power BI. El modo incremental solo procesa registros nuevos en cada ciclo, sin procesar los 735 cada vez.',
+   recibe:'raw.cartera via sources.yml · dbt run/test desde el orquestador cada 30 min',
+   entrega:'staging.stg_cartera · marts.dim_fecha/producto/cliente/gestor/calificacion · marts.fact_cartera',
+   config:['staging: materialized=view','dims: materialized=table','fact_cartera: materialized=incremental, unique_key=cod','15 tests: not_null, unique, accepted_values, relationships'],
+   dato:'8 modelos SQL · 15 tests · linaje completo · documentación auto-generada'},
+  {id:'gateway',name:'Gateway',tech:'On-premises Data Gateway',icon:'ti-network',color:'c-gray',badge:'Puente',bc:'#F1EFE8',bt:'#444441',
+   what:'Servicio de Windows que actúa como puente seguro entre PostgreSQL (en tu red local) y Power BI Service (en la nube de Microsoft Azure).',
+   why:'Power BI Service vive en internet y no puede conectarse directamente a un PostgreSQL detrás de un firewall o en localhost. El Gateway corre como servicio Windows, abre una <b>conexión saliente HTTPS</b> hacia servidores Microsoft (no requiere abrir puertos entrantes), y cuando Power BI pide datos para refrescar, el Gateway los trae de PostgreSQL y los envía de vuelta encriptados.',
+   recibe:'Solicitudes de datos de Power BI Service (cloud Microsoft)',
+   entrega:'Consultas SELECT a marts.vw_* · resultados encriptados a PBI Service',
+   config:['Nombre: CECOMSAP-Gateway','Usuario PG: pbi_reader (solo lectura)','Modo: Standard (no Personal)','Protocolo: HTTPS saliente · sin puertos entrantes'],
+   dato:'Refresh programado: 06:00, 12:00, 18:00 hora Lima · notificación email si falla'},
+  {id:'powerbi',name:'Power BI',tech:'Modelo semántico · DAX · Auto-refresh',icon:'ti-chart-pie',color:'c-blue',badge:'Consumo BI',bc:'#E6F1FB',bt:'#0C447C',
+   what:'Herramienta donde el equipo directivo de CECOMSAP analiza la cartera de créditos, mora, provisiones y rendimiento por gestor sin saber nada del pipeline detrás.',
+   why:'Power BI conecta a marts.vw_cartera_pbi — una vista que ya tiene todos los joins hechos — evitando que el analista tenga que conocer el modelo dimensional. Las <b>medidas DAX</b> calculan KPIs complejos (índice de morosidad, cobertura de provisión, tasa ponderada por monto). El refresco automático vía Gateway actualiza los datos 3 veces al día sin intervención manual.',
+   recibe:'marts.vw_cartera_pbi · marts.vw_kpis_resumen · dims (via Gateway)',
+   entrega:'Dashboards interactivos · reportes PDF · alertas a directivos CECOMSAP',
+   config:['Modo conexión: Import (caché en PBI Service)','Frecuencia refresh: 06:00, 12:00, 18:00','15 medidas DAX: mora, cobertura, tasa ponderada, time intelligence','Fuente: solo schema marts (nunca raw ni staging)'],
+   dato:'735 créditos · S/ 28.4M saldo vigente · 65.0% índice de morosidad · 1,062 días atraso promedio'}
+];
+
+let active=0;
+const bdrMap={'c-teal':'#0F6E56','c-amber':'#854F0B','c-purple':'#534AB7','c-blue':'#185FA5','c-coral':'#993C1D','c-green':'#3B6D11','c-gray':'#5F5E5A'};
+const dotColors=['#1D9E75','#BA7517','#7F77DD','#378ADD','#D85A30','#639922','#888780'];
+
+function renderNodes(){
+  const row=document.getElementById('nodes-row');
+  row.innerHTML='';
+  NODES.forEach((n,i)=>{
+    const w=document.createElement('div');w.className='node-wrap';
+    const b=document.createElement('button');
+    b.className=`node-btn ${n.color}`;
+    b.style.outline=i===active?`2px solid ${bdrMap[n.color]}`:'none';
+    b.innerHTML=`<i class="ti ${n.icon} ni"></i><div class="nn">${n.name}</div><div class="nt">${n.tech.split('·')[0].trim()}</div>`;
+    b.onclick=()=>{active=i;update();};
+    w.appendChild(b);row.appendChild(w);
+    if(i<NODES.length-1){
+      const c=document.createElement('div');c.className='connector';
+      const l=document.createElement('div');l.className='conn-line';
+      const d=document.createElement('div');d.className='dot';
+      d.style.background=dotColors[i];d.style.animationDelay=(i*0.28)+'s';
+      l.appendChild(d);c.appendChild(l);row.appendChild(c);
+    }
+  });
+}
+
+function renderDots(){
+  const dots=document.getElementById('nav-dots');dots.innerHTML='';
+  NODES.forEach((_,i)=>{
+    const d=document.createElement('button');d.className='nav-dot'+(i===active?' active':'');
+    d.setAttribute('aria-label',`Componente ${i+1}: ${NODES[i].name}`);
+    d.onclick=()=>{active=i;update();};dots.appendChild(d);
+  });
+}
+
+function renderPanel(){
+  const n=NODES[active];
+  const panel=document.getElementById('detail-panel');
+  panel.style.borderColor=bdrMap[n.color];
+  panel.innerHTML=`
+    <div class="ph" style="border-bottom-color:var(--border-light)">
+      <i class="ti ${n.icon} ph-icon" style="color:${bdrMap[n.color]}"></i>
+      <div><div class="ph-name">${n.name}</div><div class="ph-sub">${n.tech}</div></div>
+      <span class="ph-badge" style="background:${n.bc};color:${n.bt}">${n.badge}</span>
+    </div>
+    <div class="pb">
+      <div class="pc">
+        <div class="pc-title">Qué es</div>
+        <p>${n.what}</p>
+        <div class="why-box">
+          <div class="why-lbl">Por qué se eligió esta herramienta</div>
+          <div class="why-txt">${n.why}</div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pc-title">Flujo de datos</div>
+        <div class="fr"><i class="ti ti-corner-right-down" style="color:${bdrMap[n.color]};margin-top:1px"></i><div><span style="color:var(--text-secondary)">Recibe: </span><span class="fr-val">${n.recibe}</span></div></div>
+        <div class="fr" style="margin-top:8px"><i class="ti ti-corner-right-up" style="color:${bdrMap[n.color]};margin-top:1px"></i><div><span style="color:var(--text-secondary)">Entrega: </span><span class="fr-val">${n.entrega}</span></div></div>
+        <div style="margin-top:12px">
+          <div class="pc-title">Configuración clave</div>
+          ${n.config.map(c=>`<div style="margin:2px 0"><span class="cpill">${c}</span></div>`).join('')}
+        </div>
+        <div class="dato-box">
+          <div class="pc-title">Dato real CECOMSAP</div>
+          <div style="font-size:12px;line-height:1.55">${n.dato}</div>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('counter').textContent=`${active+1} / ${NODES.length}`;
+}
+
+function update(){renderNodes();renderDots();renderPanel();}
+
+document.getElementById('btn-prev').onclick=()=>{if(active>0){active--;update();}};
+document.getElementById('btn-next').onclick=()=>{if(active<NODES.length-1){active++;update();}};
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'&&active<NODES.length-1){active++;update();}
+  if(e.key==='ArrowLeft'&&active>0){active--;update();}
+});
+update();
+</script>
+</body>
+</html>

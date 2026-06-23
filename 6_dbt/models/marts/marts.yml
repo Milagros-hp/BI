@@ -1,0 +1,88 @@
+version: 2
+
+models:
+
+  - name: dim_fecha
+    description: "Dimensión fecha generada desde desembolsos y últimos pagos"
+    columns:
+      - name: date_id
+        tests: [not_null, unique]
+      - name: full_date
+        tests: [not_null, unique]
+
+  - name: dim_producto
+    description: "Dimensión producto crediticio (tipo + producto + frecuencia)"
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+      - name: tipo_credito
+        tests:
+          - accepted_values:
+              values: ['MIE', 'CON', 'PEE', 'MEE']
+
+  - name: dim_cliente
+    description: "Dimensión cliente/socio con perfil demográfico"
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: genero
+        tests:
+          - accepted_values:
+              values: ['Masculino','Femenino','Empresa/Jurídico','No especificado']
+
+  - name: dim_gestor
+    description: "Dimensión gestores, analistas y promotores"
+    columns:
+      - name: gestor_id
+        tests: [not_null, unique]
+
+  - name: dim_calificacion
+    description: "Clasificación SBS de riesgo crediticio"
+    columns:
+      - name: calif_id
+        tests: [not_null, unique]
+      - name: calificacion
+        tests:
+          - accepted_values:
+              values: ['NOR','POT','DEF','DUD','PER']
+
+  - name: fact_cartera
+    description: >
+      Tabla de hechos de cartera de créditos CECOMSAP.
+      Grano: un crédito al corte 31/03/2026.
+      Métricas: monto, saldo, atraso, mora, provisión.
+    columns:
+      - name: cod
+        tests: [not_null, unique]
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_producto')
+              field: product_id
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_cliente')
+              field: customer_id
+      - name: gestor_id
+        tests:
+          - relationships:
+              to: ref('dim_gestor')
+              field: gestor_id
+      - name: monto_credito
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
+      - name: saldo_credito
+        tests: [not_null]
+      - name: dias_atraso
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+      - name: tasa_morosidad_pct
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
