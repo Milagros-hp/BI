@@ -1,7 +1,7 @@
 site_name: COOPAC CECOMSAP - Business Intelligence
-site_url: https://[usuario].github.io/cecomsap-bi/
-repo_url: https://github.com/[usuario]/cecomsap-bi
-repo_name: cecomsap-bi
+site_url: https://Milagros-hp.github.io/BI/
+repo_url: https://github.com/Milagros-hp/BI
+repo_name: BI
 
 theme:
   name: material
@@ -40,3 +40,4 @@ nav:
     - Arquitectura: sesiones/U3_arquitectura.md
     - Trazabilidad: sesiones/U3_trazabilidad.md
     - Validación KPIs: sesiones/U3_validacion.md
+    - Entregable final U3 CECOMSAP v2: "ENTREGABLE FINAL/README.md"
