@@ -1,0 +1,1173 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Milagros-hp.github.io/BI/sesiones/U3_datamart/">
+      
+      
+        <link rel="prev" href="../U3_pipeline/">
+      
+      
+        <link rel="next" href="../U3_dashboard/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>DataMart y Modelo Dimensional - COOPAC CECOMSAP - Business Intelligence</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datamart-y-modelo-dimensional" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="COOPAC CECOMSAP - Business Intelligence" class="md-header__button md-logo" aria-label="COOPAC CECOMSAP - Business Intelligence" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COOPAC CECOMSAP - Business Intelligence
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DataMart y Modelo Dimensional
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Milagros-hp/BI" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BI
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../U3_arquitectura/" class="md-tabs__link">
+          
+  
+  
+  Unidad 3 - Integración
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="COOPAC CECOMSAP - Business Intelligence" class="md-nav__button md-logo" aria-label="COOPAC CECOMSAP - Business Intelligence" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COOPAC CECOMSAP - Business Intelligence
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Milagros-hp/BI" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BI
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 3 - Integración
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidad 3 - Integración
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U3_arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura BI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U3_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline y Transformación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataMart y Modelo Dimensional
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataMart y Modelo Dimensional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#8-datamart-y-modelo-dimensional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. DataMart y Modelo Dimensional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-tabla-de-hechos-fact_cartera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Tabla de Hechos: fact_cartera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-dimensiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Dimensiones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-reglas-de-negocio-aplicadas-en-dbt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Reglas de Negocio Aplicadas en dbt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-sql-sobre-martsfact_cartera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consulta SQL sobre marts.fact_cartera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-esquema-estrella" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por qué Esquema Estrella
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-calidad-de-datos-y-gobierno-minimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Calidad de Datos y Gobierno Mínimo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Calidad de Datos y Gobierno Mínimo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-controles-aplicados-dbt-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Controles Aplicados (dbt test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-gobierno-del-dato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Gobierno del Dato
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U3_dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Semántico y Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U3_validacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validación de KPIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../U3_trazabilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trazabilidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENTREGABLE%20FINAL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entregable Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#8-datamart-y-modelo-dimensional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. DataMart y Modelo Dimensional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-tabla-de-hechos-fact_cartera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Tabla de Hechos: fact_cartera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-dimensiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Dimensiones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-reglas-de-negocio-aplicadas-en-dbt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Reglas de Negocio Aplicadas en dbt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-sql-sobre-martsfact_cartera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consulta SQL sobre marts.fact_cartera
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-esquema-estrella" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por qué Esquema Estrella
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-calidad-de-datos-y-gobierno-minimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Calidad de Datos y Gobierno Mínimo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Calidad de Datos y Gobierno Mínimo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-controles-aplicados-dbt-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Controles Aplicados (dbt test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-gobierno-del-dato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Gobierno del Dato
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="datamart-y-modelo-dimensional">DataMart y Modelo Dimensional</h1>
+<h2 id="8-datamart-y-modelo-dimensional">8. DataMart y Modelo Dimensional</h2>
+<p>El DataMart implementa un <strong>Esquema Estrella</strong> con una tabla de hechos central y cinco dimensiones.<br />
+El grano es: <strong>un crédito por fila, al corte del 31/03/2026</strong>.</p>
+<p><img alt="Esquema Estrella en PostgreSQL" src="../../assets/images/image12.png" /></p>
+<hr />
+<h2 id="81-tabla-de-hechos-fact_cartera">8.1 Tabla de Hechos: <code>fact_cartera</code></h2>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Campos</th>
+<th>Fuente en los 6 KPIs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claves FK</td>
+<td>product_id, gestor_id, calif_id, date_id_desembolso, date_id_ultimo_pago</td>
+<td>Filtros dimensionales</td>
+</tr>
+<tr>
+<td>Clave natural</td>
+<td>cod (código del crédito)</td>
+<td>Grano único</td>
+</tr>
+<tr>
+<td>Métricas financieras</td>
+<td>monto_credito, saldo_credito, capital_atraso, mora, provision_cartera</td>
+<td>KPIs 1, 2, 4 directamente</td>
+</tr>
+<tr>
+<td>KPIs precalculados</td>
+<td>tasa_morosidad_pct = capital_atraso/saldo_credito*100</td>
+<td>KPI 3 — Índice de Morosidad %</td>
+</tr>
+<tr>
+<td>Mora detallada</td>
+<td>dias_atraso, cuotas_atraso, bucket_atraso, capital_vencido, interes_vencido</td>
+<td>Análisis de atraso</td>
+</tr>
+<tr>
+<td>Metadata CDC</td>
+<td>fecha_corte, cdc_operacion, cdc_timestamp</td>
+<td>Trazabilidad del dato</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="82-dimensiones">8.2 Dimensiones</h2>
+<table>
+<thead>
+<tr>
+<th>Dimensión</th>
+<th>Clave</th>
+<th>Atributos principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dim_fecha</td>
+<td>date_id</td>
+<td>full_date, dia, mes, nombre_mes, trimestre, anio, es_fin_semana — fuente del comparativo temporal</td>
+</tr>
+<tr>
+<td>dim_producto</td>
+<td>product_id</td>
+<td>tipo_credito, producto, frecuencia_pago, descripcion_tipo, familia_producto</td>
+</tr>
+<tr>
+<td>dim_cliente</td>
+<td>customer_id</td>
+<td>titular, edad, rango_etario, genero, tipo_vivienda, region, es_rural</td>
+</tr>
+<tr>
+<td>dim_gestor</td>
+<td>gestor_id</td>
+<td>gestor, gestor_origen, analista, es_gestor_original</td>
+</tr>
+<tr>
+<td>dim_calificacion</td>
+<td>calif_id</td>
+<td>calificacion (NOR/POT/DEF/DUD/PER), descripcion, nivel_riesgo, orden_riesgo, tasa_provision_referencial</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="83-reglas-de-negocio-aplicadas-en-dbt">8.3 Reglas de Negocio Aplicadas en dbt</h2>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Modelo dbt</th>
+<th>KPI afectado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COALESCE de nulos numéricos a 0</td>
+<td>stg_cartera.sql</td>
+<td>KPIs 1, 2, 4 (sin nulos en sumas)</td>
+</tr>
+<tr>
+<td>bucket_atraso: Al día / 1-30 / 31-60 / 61-90 / &gt;90 días</td>
+<td>stg_cartera.sql</td>
+<td>Análisis de mora por tramo</td>
+</tr>
+<tr>
+<td>tasa_morosidad_pct = capital_atraso / saldo_credito * 100</td>
+<td>fact_cartera.sql</td>
+<td>KPI 3 — Índice de Morosidad %</td>
+</tr>
+<tr>
+<td>calificacion = UPPER(TRIM(calif)) — default NOR si nulo</td>
+<td>stg_cartera.sql</td>
+<td>KPI 6 — % Cartera en Riesgo</td>
+</tr>
+<tr>
+<td>Grano único por cod (unique_key en dbt incremental)</td>
+<td>fact_cartera.sql</td>
+<td>Todos los KPIs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="consulta-sql-sobre-martsfact_cartera">Consulta SQL sobre <code>marts.fact_cartera</code></h2>
+<pre><code class="language-sql">SELECT
+    COUNT(*)                                    AS total_registros,
+    SUM(monto_credito)                          AS monto_total_creditos,
+    SUM(saldo_credito)                          AS saldo_total_creditos,
+    AVG(tasa_interes)                           AS tasa_interes_promedio,
+    SUM(total_deuda)                            AS deuda_total,
+    AVG(dias_atraso)                            AS promedio_dias_atraso
+FROM marts.fact_cartera;
+-- Resultado: 704 registros | saldo_total: 12,586,209.81
+</code></pre>
+<p><img alt="fact_cartera SELECT con los 6 KPIs calculados" src="../../assets/images/image13.png" /></p>
+<hr />
+<h2 id="por-que-esquema-estrella">Por qué Esquema Estrella</h2>
+<p>El proceso de negocio es uno solo (cartera de créditos) y todas las preguntas convergen en las mismas métricas financieras. Una sola tabla de hechos con 5 dimensiones es:</p>
+<ul>
+<li><strong>Suficiente</strong> para responder las 6 preguntas de negocio</li>
+<li><strong>Eficiente</strong> en Power BI modo Import</li>
+<li><strong>Fácil de mantener</strong> con actualizaciones CDC en tiempo real</li>
+</ul>
+<hr />
+<h2 id="13-calidad-de-datos-y-gobierno-minimo">13. Calidad de Datos y Gobierno Mínimo</h2>
+<h3 id="131-controles-aplicados-dbt-test">13.1 Controles Aplicados (dbt test)</h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Prueba dbt</th>
+<th>Columna / Regla</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Completitud</td>
+<td>not_null</td>
+<td>stg_cartera.cod — sin nulos en clave primaria</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Completitud</td>
+<td>not_null</td>
+<td>stg_cartera.monto_credito — sin nulos en monto</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Completitud</td>
+<td>not_null</td>
+<td>stg_cartera.saldo_credito — sin nulos en saldo</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Unicidad</td>
+<td>unique</td>
+<td>stg_cartera.cod — sin créditos duplicados</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Valores válidos</td>
+<td>accepted_values</td>
+<td>calificacion IN (NOR, POT, DEF, DUD, PER)</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Valores válidos</td>
+<td>accepted_values</td>
+<td>tipo_credito IN (MIE, CON, PEE, MEE)</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Rango válido</td>
+<td>expression_is_true</td>
+<td>monto_credito &gt; 0</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>Rango válido</td>
+<td>expression_is_true</td>
+<td>dias_atraso &gt;= 0</td>
+<td>PASS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="132-gobierno-del-dato">13.2 Gobierno del Dato</h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Definición</th>
+<th>Responsable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fuente oficial de KPIs</td>
+<td>marts.fact_cartera — única fuente de verdad para todos los KPIs</td>
+<td>Equipo BI</td>
+</tr>
+<tr>
+<td>Definición de KPI</td>
+<td>Fórmula única por KPI en la matriz de trazabilidad (sección 12)</td>
+<td>Equipo BI</td>
+</tr>
+<tr>
+<td>Criterio de calidad</td>
+<td>Sin nulos en cod, saldo, monto; sin duplicados de cod</td>
+<td>Equipo BI</td>
+</tr>
+<tr>
+<td>Corte de análisis</td>
+<td>31 de marzo de 2026 — campo fecha_corte en fact_cartera</td>
+<td>Equipo BI</td>
+</tr>
+<tr>
+<td>Actualización</td>
+<td>Debezium CDC en tiempo real + dbt run bajo demanda</td>
+<td>Encargado DataMart</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

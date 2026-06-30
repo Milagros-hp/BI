@@ -1,0 +1,1798 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Milagros-hp.github.io/BI/ENTREGABLE%20FINAL/">
+      
+      
+        <link rel="prev" href="../sesiones/U3_trazabilidad/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Entregable Final - COOPAC CECOMSAP - Business Intelligence</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#entregable-final-u3-cecomsap" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="COOPAC CECOMSAP - Business Intelligence" class="md-header__button md-logo" aria-label="COOPAC CECOMSAP - Business Intelligence" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COOPAC CECOMSAP - Business Intelligence
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Entregable Final
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Milagros-hp/BI" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BI
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../sesiones/U3_arquitectura/" class="md-tabs__link">
+          
+  
+  
+  Unidad 3 - Integración
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="COOPAC CECOMSAP - Business Intelligence" class="md-nav__button md-logo" aria-label="COOPAC CECOMSAP - Business Intelligence" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COOPAC CECOMSAP - Business Intelligence
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Milagros-hp/BI" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    BI
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 3 - Integración
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidad 3 - Integración
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sesiones/U3_arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura BI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sesiones/U3_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline y Transformación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sesiones/U3_datamart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataMart y Modelo Dimensional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sesiones/U3_dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Semántico y Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sesiones/U3_validacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validación de KPIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sesiones/U3_trazabilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trazabilidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entregable Final
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entregable Final
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-datos-generales-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Datos Generales del Proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Datos Generales del Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-herramientas-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Herramientas Utilizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Resumen Ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-problema-de-negocio-y-objetivo-analitico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Problema de Negocio y Objetivo Analítico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Problema de Negocio y Objetivo Analítico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-problema-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Problema de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-objetivo-analitico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Objetivo Analítico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-preguntas-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Preguntas de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-kpis-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. KPIs del Proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. KPIs del Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-criterios-de-interpretacion-semaforo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Criterios de Interpretación (Semáforo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-arquitectura-bi-implementada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Arquitectura BI Implementada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fuente-transaccional-oltp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Fuente Transaccional OLTP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Fuente Transaccional OLTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-levantar-el-stack-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 1 — Levantar el stack Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-cargar-el-excel-a-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 2 — Cargar el Excel a MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-verificar-los-datos-en-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 3 — Verificar los datos en MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pipeline-de-ingesta-y-transformacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pipeline de Ingesta y Transformación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pipeline de Ingesta y Transformación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-registrar-el-conector-debezium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 4 — Registrar el conector Debezium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-consumer-rawcartera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 5 — Consumer → raw.cartera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-dbt-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 6 — dbt run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-dbt-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 7 — dbt test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-verificar-las-tres-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 8 — Verificar las tres capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-datamart-y-modelo-dimensional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. DataMart y Modelo Dimensional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-modelo-semantico-en-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Modelo Semántico en Power BI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Modelo Semántico en Power BI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-9-conectar-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 9 — Conectar Power BI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-10-importar-tablas-marts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 10 — Importar tablas marts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativo-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativo temporal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dashboard-interactivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Dashboard Interactivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-validacion-de-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Validación de KPIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-aporte-individual-del-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Aporte Individual del Equipo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-datos-generales-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Datos Generales del Proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Datos Generales del Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-herramientas-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Herramientas Utilizadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Resumen Ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-problema-de-negocio-y-objetivo-analitico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Problema de Negocio y Objetivo Analítico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Problema de Negocio y Objetivo Analítico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-problema-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Problema de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-objetivo-analitico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Objetivo Analítico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-preguntas-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Preguntas de Negocio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-kpis-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. KPIs del Proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. KPIs del Proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-criterios-de-interpretacion-semaforo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Criterios de Interpretación (Semáforo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-arquitectura-bi-implementada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Arquitectura BI Implementada
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fuente-transaccional-oltp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Fuente Transaccional OLTP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Fuente Transaccional OLTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-levantar-el-stack-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 1 — Levantar el stack Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-cargar-el-excel-a-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 2 — Cargar el Excel a MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-verificar-los-datos-en-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 3 — Verificar los datos en MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pipeline-de-ingesta-y-transformacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pipeline de Ingesta y Transformación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Pipeline de Ingesta y Transformación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-registrar-el-conector-debezium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 4 — Registrar el conector Debezium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-consumer-rawcartera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 5 — Consumer → raw.cartera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-dbt-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 6 — dbt run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-dbt-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 7 — dbt test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-verificar-las-tres-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 8 — Verificar las tres capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-datamart-y-modelo-dimensional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. DataMart y Modelo Dimensional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-modelo-semantico-en-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Modelo Semántico en Power BI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Modelo Semántico en Power BI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-9-conectar-power-bi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 9 — Conectar Power BI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-10-importar-tablas-marts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 10 — Importar tablas marts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativo-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativo temporal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-dashboard-interactivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Dashboard Interactivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-validacion-de-kpis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Validación de KPIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-aporte-individual-del-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Aporte Individual del Equipo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="entregable-final-u3-cecomsap">Entregable Final U3 — CECOMSAP</h1>
+<p><strong>PRODUCTO DEL CURSO — UNIDAD 3</strong><br />
+Sistema de Inteligencia de Negocios CECOMSAP — Cartera de Créditos<br />
+Solución BI end-to-end: desde la base de datos transaccional hasta el dashboard de decisión.</p>
+<p><strong>Docente:</strong> Mg. Abel Ángel Sullon Macalupu<br />
+<strong>Repositorio:</strong> <a href="https://github.com/Milagros-hp/BI.git">https://github.com/Milagros-hp/BI.git</a></p>
+<hr />
+<h2 id="1-datos-generales-del-proyecto">1. Datos Generales del Proyecto</h2>
+<p>Este informe documenta la solución de Inteligencia de Negocios end-to-end construida para la Cooperativa de Ahorro y Crédito CECOMSAP Limitada (San Román, Puno). Cubre el ciclo completo: desde la base de datos transaccional hasta el dashboard en Power BI, pasando por la ingesta CDC con Debezium+Kafka, la transformación en capas con dbt y la validación de cada KPI.</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombre del proyecto BI</td>
+<td>Sistema de Inteligencia de Negocios — Cartera de Créditos CECOMSAP</td>
+</tr>
+<tr>
+<td>Proceso de negocio</td>
+<td>Gestión de cartera de créditos al corte 31/03/2026 (737 créditos)</td>
+</tr>
+<tr>
+<td>Fuente transaccional</td>
+<td>MySQL 8.0 (oltp_cecomsap) — contenedor Docker</td>
+</tr>
+<tr>
+<td>Corte de datos</td>
+<td>31 de marzo de 2026</td>
+</tr>
+<tr>
+<td>Repositorio GitHub</td>
+<td>https://github.com/Milagros-hp/BI.git</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11-herramientas-utilizadas">1.1 Herramientas Utilizadas</h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Herramienta / Tecnología</th>
+<th>Evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OLTP</td>
+<td>MySQL 8.0 (Docker)</td>
+<td>Contenedor cecomsap_mysql, puerto 3306</td>
+</tr>
+<tr>
+<td>Ingesta CDC</td>
+<td>Debezium 2.7 + Kafka Confluent 7.7</td>
+<td>Conector MySQL binlog → topic Kafka</td>
+</tr>
+<tr>
+<td>Consumer</td>
+<td>Python 3 (consumer.py)</td>
+<td>Kafka → raw.cartera en PostgreSQL</td>
+</tr>
+<tr>
+<td>Data Warehouse</td>
+<td>PostgreSQL 15 (Docker)</td>
+<td>Contenedor cecomsap_postgres, puerto 5432</td>
+</tr>
+<tr>
+<td>Transformación</td>
+<td>dbt Core + dbt-postgres</td>
+<td>7 modelos: stg_cartera + 5 dims + fact_cartera</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Power BI Desktop</td>
+<td>cecomsap_cartera.pbix</td>
+</tr>
+<tr>
+<td>Documentación</td>
+<td>MkDocs + GitHub Actions</td>
+<td>Sitio publicado automáticamente en cada push</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-resumen-ejecutivo">2. Resumen Ejecutivo</h2>
+<p>La Cooperativa CECOMSAP gestiona <strong>737 créditos activos</strong> en su sistema MySQL, pero ese sistema sirve para operar, no para analizar: la gerencia no podía saber cuántos créditos están en mora, qué calificación SBS tienen, qué gestor concentra más riesgo, ni cuánto capital está en riesgo de pérdida. Las decisiones se tomaban con reportes manuales en Excel.</p>
+<p>Para resolverlo, el equipo construyó una solución BI completa: los datos nacen en MySQL, se replican en tiempo real hacia PostgreSQL mediante Debezium + Kafka + Consumer Python, se transforman con dbt en tres capas (raw, staging, marts) aplicando reglas de negocio crediticio y un modelo dimensional tipo Estrella (una tabla de hechos y cinco dimensiones), y se consumen desde Power BI con 6 KPIs clave, comparativos temporales y semáforos de interpretación.</p>
+<p>Los hallazgos confirman que la cartera presenta un índice de morosidad que supera el umbral de alerta cooperativista, con concentración en créditos del bucket mayor a 30 días y en la calificación PÉRDIDA (PER). Con base en esta evidencia, el equipo recomienda activar un plan de cobranza intensiva priorizado por bucket de atraso y gestor.</p>
+<hr />
+<h2 id="3-problema-de-negocio-y-objetivo-analitico">3. Problema de Negocio y Objetivo Analítico</h2>
+<h3 id="31-problema-de-negocio">3.1 Problema de Negocio</h3>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Área o proceso</td>
+<td>Gestión de cartera de créditos y cobranza</td>
+</tr>
+<tr>
+<td>Problema identificado</td>
+<td>Los datos de cartera existen en MySQL pero no hay infraestructura analítica para convertirlos en información de gestión de riesgo crediticio</td>
+</tr>
+<tr>
+<td>Usuarios principales</td>
+<td>Gerencia general, jefatura de créditos, gestores de cobranza, área de riesgos</td>
+</tr>
+<tr>
+<td>Decisiones a mejorar</td>
+<td>Priorización de cobranza, asignación de gestores, cálculo de provisiones, alertas de mora</td>
+</tr>
+<tr>
+<td>Impacto esperado</td>
+<td>Reducir el índice de morosidad y optimizar provisiones con datos validados en tiempo real</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-objetivo-analitico">3.2 Objetivo Analítico</h3>
+<p>Construir una solución BI end-to-end que permita a la gerencia monitorear la cartera en tiempo real, comparar la mora actual contra el periodo anterior y el mismo periodo del año previo, identificar créditos en riesgo por calificación SBS y bucket de atraso, y soportar decisiones de cobranza basadas en datos validados.</p>
+<h3 id="33-preguntas-de-negocio">3.3 Preguntas de Negocio</h3>
+<table>
+<thead>
+<tr>
+<th>Pregunta de negocio</th>
+<th>KPI relacionado</th>
+<th>Visual en Power BI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Cuál es el índice de morosidad actual?</td>
+<td>Índice de Morosidad %</td>
+<td>Tarjeta KPI + semáforo</td>
+</tr>
+<tr>
+<td>¿Cuánto capital está en riesgo real?</td>
+<td>Capital en Mora (S/)</td>
+<td>Tarjeta KPI</td>
+</tr>
+<tr>
+<td>¿La provisión cubre la mora?</td>
+<td>Cobertura de Provisión %</td>
+<td>Medidor</td>
+</tr>
+<tr>
+<td>¿Qué calificación SBS concentra más saldo?</td>
+<td>Saldo Vigente Total por calificación</td>
+<td>Barras apiladas</td>
+</tr>
+<tr>
+<td>¿Mejoramos vs el año pasado?</td>
+<td>Variación Saldo % vs Año Anterior</td>
+<td>Línea + tarjeta comparativa</td>
+</tr>
+<tr>
+<td>¿Qué gestor tiene más mora?</td>
+<td>Capital en Mora por Gestor</td>
+<td>Tabla ranking</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-kpis-del-proyecto">4. KPIs del Proyecto</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>KPI</th>
+<th>Fórmula de negocio</th>
+<th>Campo en fact_cartera</th>
+<th>Medida DAX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Saldo Vigente Total</td>
+<td>SUM(saldo_credito)</td>
+<td>saldo_credito</td>
+<td><code>SUM(fact_cartera[saldo_credito])</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Capital en Mora</td>
+<td>SUM(capital_atraso)</td>
+<td>capital_atraso</td>
+<td><code>SUM(fact_cartera[capital_atraso])</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Índice de Morosidad %</td>
+<td>Capital en Mora / Saldo Vigente × 100</td>
+<td>calculado en dbt</td>
+<td><code>DIVIDE([Capital en Mora],[Saldo Vigente Total],0)*100</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Provisión Total</td>
+<td>SUM(provision_cartera)</td>
+<td>provision_cartera</td>
+<td><code>SUM(fact_cartera[provision_cartera])</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cobertura de Provisión %</td>
+<td>Provisión Total / Capital en Mora × 100</td>
+<td>calculado en DAX</td>
+<td><code>DIVIDE([Provisión Total],[Capital en Mora],0)*100</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>% Cartera en Riesgo</td>
+<td>Saldo PER+DUD+DEF+POT / Saldo Total × 100</td>
+<td>calculado en DAX con dim_calificacion</td>
+<td><code>DIVIDE(CALCULATE(SUM saldo, calif IN {PER,DUD,DEF,POT}), [Saldo Vigente Total],0)*100</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-criterios-de-interpretacion-semaforo">4.1 Criterios de Interpretación (Semáforo)</h3>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>🔴 Riesgo</th>
+<th>🟡 Alerta</th>
+<th>🟢 Saludable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Índice de Morosidad %</td>
+<td>&gt; 8%</td>
+<td>5% – 8%</td>
+<td>&lt; 5%</td>
+</tr>
+<tr>
+<td>Cobertura de Provisión %</td>
+<td>&lt; 80%</td>
+<td>80% – 100%</td>
+<td>&gt; 100%</td>
+</tr>
+<tr>
+<td>% Cartera en Riesgo</td>
+<td>&gt; 15%</td>
+<td>8% – 15%</td>
+<td>&lt; 8%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-arquitectura-bi-implementada">5. Arquitectura BI Implementada</h2>
+<pre><code>BD MARZO26.xlsx → loader.py → MySQL OLTP (oltp_cecomsap)
+    → Debezium CDC → Kafka
+    → consumer.py → PostgreSQL raw (Bronze)
+    → dbt staging (Silver) → dbt marts (Gold)
+    → Power BI
+</code></pre>
+<p><img alt="Stack Docker - todos los contenedores corriendo" src="../assets/images/image1.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Estado</th>
+<th>Evidencia en el repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL OLTP — tabla cartera (50 cols, 737 filas)</td>
+<td>Completo</td>
+<td><code>2_mysql/01_create_oltp_table.sql</code></td>
+</tr>
+<tr>
+<td>Loader Excel → MySQL</td>
+<td>Completo</td>
+<td><code>1_data/load_to_mysql.py</code></td>
+</tr>
+<tr>
+<td>Debezium conector CDC</td>
+<td>Completo</td>
+<td><code>3_debezium/connector-config.json</code></td>
+</tr>
+<tr>
+<td>Kafka broker + topic</td>
+<td>Completo</td>
+<td><code>docker-compose.yml</code> (cp-kafka:7.7.1)</td>
+</tr>
+<tr>
+<td>Consumer Python → raw.cartera</td>
+<td>Completo</td>
+<td><code>4_consumer/consumer.py</code></td>
+</tr>
+<tr>
+<td>PostgreSQL raw (Bronze)</td>
+<td>Completo</td>
+<td><code>5_postgres/02_create_raw_table.sql</code></td>
+</tr>
+<tr>
+<td>dbt staging (Silver) — stg_cartera</td>
+<td>Completo</td>
+<td><code>6_dbt/models/staging/stg_cartera.sql</code></td>
+</tr>
+<tr>
+<td>dbt marts (Gold) — 5 dims + fact_cartera</td>
+<td>Completo</td>
+<td><code>6_dbt/models/marts/</code></td>
+</tr>
+<tr>
+<td>Power BI — modelo + 6 KPIs + dashboard</td>
+<td>Completo</td>
+<td><code>8_powerbi/medidas_dax.md</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-fuente-transaccional-oltp">6. Fuente Transaccional OLTP</h2>
+<h3 id="paso-1-levantar-el-stack-docker">PASO 1 — Levantar el stack Docker</h3>
+<pre><code class="language-bash">docker compose up -d &amp;&amp; docker compose ps
+</code></pre>
+<p><img alt="PASO 1 - Docker containers Up" src="../assets/images/image2.png" /></p>
+<h3 id="paso-2-cargar-el-excel-a-mysql">PASO 2 — Cargar el Excel a MySQL</h3>
+<pre><code class="language-bash">docker compose --profile load run --rm loader
+# Output: 737 filas insertadas en oltp_cecomsap.cartera
+</code></pre>
+<p><img alt="PASO 2 - Carga Excel a MySQL" src="../assets/images/image3.png" /></p>
+<h3 id="paso-3-verificar-los-datos-en-mysql">PASO 3 — Verificar los datos en MySQL</h3>
+<pre><code class="language-sql">SELECT COUNT(*) AS total_creditos,
+       ROUND(SUM(saldo_credito), 2) AS saldo_total,
+       ROUND(SUM(capital_atraso),2) AS mora_total
+FROM oltp_cecomsap.cartera;
+</code></pre>
+<p><img alt="PASO 3 - Verificación MySQL DBeaver" src="../assets/images/image5.png" /></p>
+<hr />
+<h2 id="7-pipeline-de-ingesta-y-transformacion">7. Pipeline de Ingesta y Transformación</h2>
+<h3 id="paso-4-registrar-el-conector-debezium">PASO 4 — Registrar el conector Debezium</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:8083/connectors \
+  -H &quot;Content-Type: application/json&quot; \
+  -d @3_debezium/connector-config.json
+</code></pre>
+<p><img alt="PASO 4 - Debezium RUNNING" src="../assets/images/image6.png" /></p>
+<h3 id="paso-5-consumer-rawcartera">PASO 5 — Consumer → raw.cartera</h3>
+<pre><code class="language-bash">docker compose up -d consumer
+</code></pre>
+<p><img alt="PASO 5 - Kafka UI: 706 mensajes en el topic" src="../assets/images/image7.png" /></p>
+<h3 id="paso-6-dbt-run">PASO 6 — dbt run</h3>
+<pre><code class="language-bash">docker compose --profile dbt run --rm dbt run
+# 7 modelos OK: stg_cartera + 5 dims + fact_cartera
+</code></pre>
+<p><img alt="PASO 6 - dbt run 7 modelos OK" src="../assets/images/image8.png" /></p>
+<p><img alt="PASO 6 - Esquemas PostgreSQL creados" src="../assets/images/image9.png" /></p>
+<h3 id="paso-7-dbt-test">PASO 7 — dbt test</h3>
+<pre><code class="language-bash">docker compose --profile dbt run --rm dbt test
+# N of N PASS
+</code></pre>
+<p><img alt="PASO 7 - dbt test todos PASS" src="../assets/images/image10.png" /></p>
+<h3 id="paso-8-verificar-las-tres-capas">PASO 8 — Verificar las tres capas</h3>
+<pre><code class="language-sql">SELECT COUNT(*) FROM raw.cartera;           -- 737
+SELECT COUNT(*) FROM staging.stg_cartera;   -- 704
+SELECT COUNT(*) FROM marts.fact_cartera;    -- 704
+</code></pre>
+<p><img alt="PASO 8 - Tres capas verificadas" src="../assets/images/image11.png" /></p>
+<hr />
+<h2 id="8-datamart-y-modelo-dimensional">8. DataMart y Modelo Dimensional</h2>
+<p><img alt="Esquema Estrella en PostgreSQL" src="../assets/images/image12.png" /></p>
+<p><img alt="fact_cartera SELECT con KPIs" src="../assets/images/image13.png" /></p>
+<hr />
+<h2 id="9-modelo-semantico-en-power-bi">9. Modelo Semántico en Power BI</h2>
+<h3 id="paso-9-conectar-power-bi">PASO 9 — Conectar Power BI</h3>
+<p><img alt="PASO 9 - Conexión Power BI" src="../assets/images/image14.png" /></p>
+<h3 id="paso-10-importar-tablas-marts">PASO 10 — Importar tablas marts</h3>
+<p><img alt="PASO 10 - 6 tablas importadas" src="../assets/images/image15.png" /></p>
+<h3 id="comparativo-temporal">Comparativo temporal</h3>
+<p><img alt="Gráfico comparativo por mes" src="../assets/images/image16.png" /></p>
+<hr />
+<h2 id="10-dashboard-interactivo">10. Dashboard Interactivo</h2>
+<p><img alt="Dashboard - vista fact_cartera" src="../assets/images/image17.png" /></p>
+<hr />
+<h2 id="11-validacion-de-kpis">11. Validación de KPIs</h2>
+<p><img alt="SQL vs Power BI - resultado 12,586,209.81" src="../assets/images/image19.png" /></p>
+<p><img alt="Suma de Saldo Credito en Power BI" src="../assets/images/image20.png" /></p>
+<hr />
+<h2 id="17-aporte-individual-del-equipo">17. Aporte Individual del Equipo</h2>
+<p><strong>OLTP MySQL:</strong> Instalación y configuración del contenedor MySQL 8.0; creación de oltp_cecomsap con la tabla cartera (50 columnas, índices CDC); carga del archivo BD_MARZO26.xlsx con load_to_mysql.py; verificación de 737 registros sin duplicados en cod.</p>
+<p><strong>Debezium + Kafka:</strong> Configuración del stack Kafka (Zookeeper + Broker + Kafka Connect); registro del conector Debezium con connector-config.json; verificación del topic Kafka con los 737 mensajes del snapshot inicial; pruebas de CDC incremental.</p>
+<p><strong>Consumer Python + dbt:</strong> Configuración y ejecución de consumer.py; verificación de raw.cartera en PostgreSQL (737 filas); construcción del proyecto dbt (7 modelos); pruebas automáticas de calidad; validación cruzada OLTP vs DataMart con diferencia cero.</p>
+<p><strong>Power BI:</strong> Conexión al esquema marts de PostgreSQL; modelo semántico con 5 relaciones; creación de los 6 KPIs DAX + comparativos temporales + semáforos; construcción de las 3 páginas del dashboard; validación SQL vs Power BI con diferencia cero.</p>
+<p><strong>Integración U3:</strong> Construcción de los comparativos obligatorios; actualización de la trazabilidad de los 6 KPIs; documentación MkDocs y GitHub Actions; redacción del documento integrador; preparación de la PPT de sustentación.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
