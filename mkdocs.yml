@@ -11,33 +11,18 @@ theme:
   language: es
   features:
     - navigation.tabs
-    - Resumen Sesion 1 (OLTP MySQL): sesiones/U2_S1_oltp_mysql.md
-    - Resumen Sesion 2 (CDC Debezium+Kafka): sesiones/U2_S2_debezium_kafka.md
-    - Resumen Sesion 3 (dbt transformacion): sesiones/U2_S3_dbt.md
-    - Resumen Sesion 4 (Metabase BI): sesiones/U2_S4_metabase.md
-    - S1 P1 Levantar OLTP MySQL: sesiones/U2_S1_P1_oltp_mysql.md
-    - S1 P2 Cargar Excel a MySQL: sesiones/U2_S1_P2_carga_excel.md
-    - S1 P3 Validacion OLTP: sesiones/U2_S1_P3_validacion_oltp.md
-    - S2 P1 Debezium CDC replica MySQL PostgreSQL: sesiones/U2_S2_P1_debezium_cdc.md
-    - S2 P2 dbt modelado fisico DataMart: sesiones/U2_S2_P2_dbt_modelado.md
-    - S2 P3 Validacion analitica dbt: sesiones/U2_S2_P3_validacion_dbt.md
-    - S3 P1 Modelo semantico Metabase: sesiones/U2_S3_P1_modelo_semantico.md
-    - S3 P2 KPIs y consultas SQL: sesiones/U2_S3_P2_kpis_sql.md
-    - S4 Dashboard Metabase: sesiones/U2_S4_P1_dashboard_metabase.md
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
 nav:
   - Inicio: index.md
-  - Unidad 1 - Requerimientos BI:
-    - S1 Problema de negocio: sesiones/U1_S1_problema_negocio.md
-    - S2 KPIs y requerimientos: sesiones/U1_S2_kpis.md
-    - S3 Modelo dimensional: sesiones/U1_S3_modelo_dimensional.md
-    - S4 Mockup del dashboard: sesiones/U1_S4_mockup.md
-  - Unidad 2 - Pipeline y DataMart:
-    - S1 OLTP MySQL: sesiones/U2_S1_oltp_mysql.md
-    - S2 Debezium + Kafka CDC: sesiones/U2_S2_debezium_kafka.md
-    - S3 dbt transformación: sesiones/U2_S3_dbt.md
-    - S4 Metabase BI: sesiones/U2_S4_metabase.md
   - Unidad 3 - Integración:
-    - Arquitectura: sesiones/U3_arquitectura.md
+    - Arquitectura BI: sesiones/U3_arquitectura.md
+    - Pipeline y Transformación: sesiones/U3_pipeline.md
+    - DataMart y Modelo Dimensional: sesiones/U3_datamart.md
+    - Modelo Semántico y Dashboard: sesiones/U3_dashboard.md
+    - Validación de KPIs: sesiones/U3_validacion.md
     - Trazabilidad: sesiones/U3_trazabilidad.md
-    - Validación KPIs: sesiones/U3_validacion.md
-    - Entregable final U3 CECOMSAP v2: "ENTREGABLE FINAL/README.md"
+    - Entregable Final: "ENTREGABLE FINAL/README.md"
